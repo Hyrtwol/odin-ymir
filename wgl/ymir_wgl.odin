@@ -1,14 +1,16 @@
 // https://wikis.khronos.org/opengl/Creating_an_OpenGL_Context_(WGL)
 package ymir_wgl
 
+// odinfmt: disable
 import "core:fmt"
 import win32 "core:sys/windows"
 import gl "vendor:OpenGL"
 import ygl "../gl"
+// odinfmt: enable
 
-// glGetString :: ygl.GetString
 set_viewport_size :: ygl.set_viewport
 set_viewport :: ygl.set_viewport
+load_up_to :: ygl.load_up_to
 
 PIXELFORMATDESCRIPTOR :: win32.PIXELFORMATDESCRIPTOR
 
@@ -23,9 +25,9 @@ SwapBuffers :: win32.SwapBuffers
 
 gl_set_proc_address :: win32.gl_set_proc_address
 
-load_up_to :: proc(major: int = 4, minor: int = 6) {
+load_up_to_with_extensions :: proc(major: int = 4, minor: int = 6) {
 	fmt.println(#procedure, major, minor)
-	gl.load_up_to(major, minor, gl_set_proc_address)
+	load_up_to(major, minor, gl_set_proc_address)
 	init_wgl_extensions()
 }
 
