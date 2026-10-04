@@ -1,4 +1,4 @@
-package obug
+package bug
 
 import "core:terminal/ansi"
 import "core:fmt"

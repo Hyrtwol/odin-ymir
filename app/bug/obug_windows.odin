@@ -1,4 +1,4 @@
-package obug
+package bug
 
 import win32 "core:sys/windows"
 
