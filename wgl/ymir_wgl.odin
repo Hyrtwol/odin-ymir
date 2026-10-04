@@ -26,7 +26,6 @@ SwapBuffers :: win32.SwapBuffers
 gl_set_proc_address :: win32.gl_set_proc_address
 
 load_up_to_with_extensions :: proc(major: int = 4, minor: int = 6) {
-	fmt.println(#procedure, major, minor)
 	load_up_to(major, minor, gl_set_proc_address)
 	init_wgl_extensions()
 }
