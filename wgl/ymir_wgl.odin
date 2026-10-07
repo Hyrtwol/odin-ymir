@@ -84,9 +84,11 @@ set_swap_interval :: proc(interval: i32) -> (ok: bool) {
 
 delete_context_and_clear :: proc(hglrc: ^win32.HGLRC) {
 	// wglMakeCurrent(hdc, NULL); Unnecessary; wglDeleteContext will make the context not current
-	ok := win32.wglDeleteContext(hglrc^)
-	if ok {
-		hglrc^ = nil
+	if hglrc^ != nil {
+		ok := win32.wglDeleteContext(hglrc^)
+		if ok {
+			hglrc^ = nil
+		}
 	}
 }
 
