@@ -8,6 +8,11 @@ import gl "vendor:OpenGL"
 
 _ :: fmt
 
+GL_Error :: enum u32 {
+	None = 0,
+ 	Missing_Swap_Interval_EXT = 1,
+}
+
 GetString :: gl.GetString
 
 set_viewport_size :: proc(size: [2]i32) {
@@ -149,3 +154,9 @@ generate_mipmap :: proc(texture: Texture) {
 tex_parameteri :: proc(texture: Texture, pname: u32, param: i32) {
 	gl.TexParameteri(u32(texture.target), pname, param)
 }
+
+ShaderProgram :: struct {
+	id:               u32,
+	uniforms:         gl.Uniforms,
+}
+
